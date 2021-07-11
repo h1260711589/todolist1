@@ -1,0 +1,46 @@
+.mainDiv {
+  border: solid 1px black;
+  margin: auto;
+  width: 800px;
+}
+
+.header {
+  margin: 20px 30px;
+}
+
+.note {
+  border: solid 1px red;
+  width: 700px;
+  margin: auto;
+}
+
+.noteHeader{
+  position: relative;
+}
+
+.left {
+  display: inline-block;
+}
+
+.right {
+    display: inline-block;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform:translateY(-50%);
+}
+
+.right span{
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.icon-jinzhi{
+  float: right;
+  margin-right: 10px;
+}
+
+.item{
+  margin-top: 6px;
+}
+

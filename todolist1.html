@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todolist1</title>
+</head>
+<link rel="stylesheet" href="todolist1.css">
+<link rel="stylesheet" href="modal.css">
+<link rel="stylesheet" href="http://at.alicdn.com/t/font_2663668_qb76k5qp3s.css">
+
+
+
+<body>
+    <div class="mainDiv">
+        <div class="header">
+            <button id='addNote'>新增便签</button>
+        </div>
+
+        <div id="content">
+            <div class="note">
+                <div class="noteHeader">
+                    <div class="left">
+                        <span>标签名</span><br>
+                        <span>时间</span>
+                    </div>
+                    <div class="right">
+                        <span class="iconfont icon-jiahao"></span>
+                        <span class="iconfont icon-shanchu1"></span>
+                        <span class="iconfont icon-shezhi"></span>
+                        <span class="iconfont icon-Other-4"></span>
+                    </div>
+                </div>
+
+                <!-- <div class="item">
+                    <input type="checkbox">
+                    <span>卧槽卧槽</span>
+                    <span class="iconfont icon-jinzhi"></span>
+                </div>
+
+                <div class="item">
+                    <input type="checkbox">
+                    <span>卧槽卧槽</span>
+                    <span class="iconfont icon-jinzhi"></span>
+                </div>
+                <div class="item">
+                    <input type="checkbox">
+                    <span>卧槽卧槽</span>
+                    <span class="iconfont icon-jinzhi"></span>
+                </div>
+            </div> -->
+
+        </div>
+
+
+        <!-- 添加条目 -->
+        <div id="addItem" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">x</span>
+                    <h2>编辑条目</h2>
+                </div>
+                <div class="modal-body">
+                    <p>记录</p>
+                    <input type="text" id='record'>
+                </div>
+                <div class="modal-footer">
+                    <button class="sureAddItem">确定</button>
+                    <button class="closeModal">取消</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 编辑便签 -->
+        <div id="changeNote" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">x</span>
+                    <h2>编辑便签</h2>
+                </div>
+                <div class="modal-body">
+                    <p>便签名称</p>
+                    <input type="text" id='note'>
+                </div>
+                <div class="modal-footer">
+                    <button class="sureChangeNote">确定</button>
+                    <button class="closeModal">取消</button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 添加便签 -->
+        <div id="addNoteModal" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="close">x</span>
+                    <h2>编辑便签</h2>
+                </div>
+                <div class="modal-body">
+                    <p>便签名称</p>
+                    <input type="text" id='name'>
+                    <p>提醒时间</p>
+                    <input type="date" id='date'>
+                </div>
+                <div class="modal-footer">
+                    <button class="sureAddNote">确定</button>
+                    <button class="closeModal">取消</button>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- 添加条目 -->
+    <script>
+        // Get the modal
+        var addModal = document.getElementById('addItem');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        var cancel = document.getElementsByClassName('closeModal')[0]
+
+        // When the user clicks on <span> (x), close the modal
+        cancel.onclick = span.onclick = function () {
+            addModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target ==  addModal) {
+                addModal.style.display = "none";
+            }
+        }
+
+        let sureAddItem = document.getElementsByClassName('sureAddItem')[0]
+        sureAddItem.render = true
+
+
+    </script>
+
+    <!-- 编辑便签 -->
+    <script>
+        // Get the modal
+        var changeModal = document.getElementById('changeNote');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[1];
+
+        var cancel = document.getElementsByClassName('closeModal')[1]
+
+        // When the user clicks on <span> (x), close the modal
+        cancel.onclick = span.onclick = function () {
+            changeModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == changeModal) {
+                changeModal.style.display = "none";
+            }
+        }
+
+        let sureChangeNote = document.getElementsByClassName('sureChangeNote')[0]
+        sureChangeNote.render = true
+
+
+    </script>
+
+
+    <!-- 添加便签 -->
+    <script>
+        // Get the modal
+        var addNoteModal = document.getElementById('addNoteModal');
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[2];
+
+        var cancel = document.getElementsByClassName('closeModal')[2]
+
+        // When the user clicks on <span> (x), close the modal
+        cancel.onclick = span.onclick = function () {
+            addNoteModal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == addNoteModal) {
+                addNoteModal.style.display = "none";
+            }
+        }
+
+        let sureAddNote = document.getElementsByClassName('sureAddNote')[0]
+        sureAddNote.render = true
+
+
+    </script>
+
+
+
+    <script type="module">
+        import item from 'http://192.168.1.5:8000/item.js'
+        import note from 'http://192.168.1.5:8000/note.js'
+        import todolist from 'http://192.168.1.5:8000/todolist.js'
+        
+
+
+        let myTodolist = new todolist()
+        myTodolist.render()
+
+
+        //添加便签按钮
+        let addNote = document.getElementById('addNote')
+        addNote.onclick = () => {
+            let modal = document.getElementById('addNoteModal')
+            modal.style.display = 'block'
+            let sure = document.getElementsByClassName('sureAddNote')[0]
+
+            sure.onclick = () => {
+                let name = document.getElementById('name').value
+                document.getElementById('name').value = ''
+                let date = document.getElementById('date').value
+                document.getElementById('date').value = ''
+                let newNote = new note(name, date)
+                myTodolist.notes.push(newNote)
+                modal.style.display = 'none'
+            }
+        }
+    </script>
+
+
+
+
+</body>
+
+</html>
